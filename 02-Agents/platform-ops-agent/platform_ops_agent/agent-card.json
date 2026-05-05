@@ -1,0 +1,19 @@
+{
+  "name": "platform-ops-agent",
+  "description": "A platform-ops-agent agent",
+  "url": "http://localhost:8080",
+  "version": "0.0.1",
+  "capabilities": {
+    "streaming": true
+  },
+  "defaultInputModes": ["text"],
+  "defaultOutputModes": ["text"],
+  "skills": [
+    {
+      "id": "platform-ops-agent",
+      "name": "platform-ops-agent",
+      "description": "A platform-ops-agent agent",
+      "tags": ["platform-ops-agent"]
+    }
+  ]
+}
