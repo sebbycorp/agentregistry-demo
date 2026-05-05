@@ -26,8 +26,7 @@ A 7-act live demo showing the full agentregistry lifecycle: install the platform
 
 - [ ] Docker Desktop running
 - [ ] Terminal open, clean working directory
-- [ ] `OPENAI_API_KEY` env var set (for kagent)
-- [ ] `GOOGLE_API_KEY` env var set (for Gemini ADK agent)
+- [ ] `OPENAI_API_KEY` env var set (for kagent and agent model provider)
 - [ ] Pre-written files accessible (see [Pre-Written Content](#pre-written-content) below)
 - [ ] No existing kind cluster named `agentregistry`
 - [ ] No existing arctl daemon running

@@ -18,9 +18,9 @@ services:
       - AGENT_NAME=platform-ops-agent
       - OTEL_SERVICE_NAME=platform-ops-agent
       - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=${OTEL_EXPORTER_OTLP_TRACES_ENDPOINT}
-      - MODEL_PROVIDER=gemini
-      - MODEL_NAME=gemini-2.0-flash
-      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - MODEL_PROVIDER=openAI
+      - MODEL_NAME=gpt-4o
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
     volumes:
       - type: bind
         source: ./platform_ops_agent

@@ -43,8 +43,8 @@ async def check_prime(nums: list[int]) -> str:
 
 
 def create_model():
-    """Use a Gemini model."""
-    return "gemini-2.0-flash"
+    """Use an OpenAI model."""
+    return "gpt-4o"
 
 
 mcp_tools = get_mcp_tools()

@@ -6,7 +6,7 @@
 
 **Architecture:** The skill is a knowledge package (SKILL.md + assets) scaffolded via `arctl skill init`, containing K8s standards, SLA tiers, and team ownership mappings. The agent is scaffolded via `arctl agent init adk python`, then composed entirely through `agent.yaml` by adding the ops-server MCP (from 01-MCP), the skill, and a strict-operator prompt. No custom agent logic — the value is in composition. Each folder has a standalone demo-script.md.
 
-**Tech Stack:** arctl CLI, Docker, Kubernetes (kind), Google ADK (Python), Gemini
+**Tech Stack:** arctl CLI, Docker, Kubernetes (kind), Google ADK (Python), OpenAI (gpt-4o)
 
 **Working directory:** `/Users/sebbycorp/Library/CloudStorage/GoogleDrive-sebastian.maniak@solo.io/My Drive/Projects/agentregistry-demo`
 
@@ -549,8 +549,8 @@ agentName: platform-ops-agent
 image: ghcr.io/platform-ops-agent:latest
 language: python
 framework: adk
-modelProvider: gemini
-modelName: gemini-2.0-flash
+modelProvider: openAI
+modelName: gpt-4o
 description: "Platform Ops Agent — deployment management, escalation, incident response"
 mcpServers:
   - type: registry
@@ -610,7 +610,7 @@ Create `02-Agents/demo-script.md`:
 - kagent installed on cluster (see kagent OSS quickstart)
 - 01-MCP: ops-server built and published to registry
 - 03-Skills: platform-best-practices skill built and published to registry
-- `GOOGLE_API_KEY` env var set (Gemini ADK requirement)
+- `OPENAI_API_KEY` env var set (for OpenAI model provider)
 - Clean slate: `arctl agent list` shows no existing agents
 
 ---
@@ -695,7 +695,7 @@ arctl deployments list
 
 ```bash
 # Run the agent
-export GOOGLE_API_KEY=<your-key>
+export OPENAI_API_KEY=<your-key>
 arctl agent run platform-ops-agent
 ```
 

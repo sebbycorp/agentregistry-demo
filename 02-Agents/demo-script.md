@@ -8,7 +8,7 @@
 - kagent installed on cluster (see kagent OSS quickstart)
 - 01-MCP: ops-server built and published to registry
 - 03-Skills: platform-best-practices skill built and published to registry
-- `GOOGLE_API_KEY` env var set (Gemini ADK requirement)
+- `OPENAI_API_KEY` env var set (for OpenAI model provider)
 - Clean slate: `arctl agent list` shows no existing agents
 
 ---
@@ -93,7 +93,7 @@ arctl deployments list
 
 ```bash
 # Run the agent
-export GOOGLE_API_KEY=<your-key>
+export OPENAI_API_KEY=<your-key>
 arctl agent run platform-ops-agent
 ```
 

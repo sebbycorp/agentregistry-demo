@@ -2,8 +2,8 @@ agentName: platform-ops-agent
 image: ghcr.io/platform-ops-agent:latest
 language: python
 framework: adk
-modelProvider: gemini
-modelName: gemini-2.0-flash
+modelProvider: openAI
+modelName: gpt-4o
 description: "Platform Ops Agent — deployment management, escalation, incident response"
 mcpServers:
   - type: registry
