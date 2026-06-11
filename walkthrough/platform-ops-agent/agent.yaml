@@ -1,0 +1,27 @@
+agentName: platformopsagent
+image: ghcr.io/platform-ops-agent:latest
+language: python
+framework: adk
+modelProvider: openAI
+modelName: gpt-4o
+description: "Platform Ops Agent — deployment management, escalation, incident response"
+mcpServers:
+  - type: registry
+    name: ops-server
+    env:
+      - MCP_TRANSPORT_MODE=http
+      - HOST=0.0.0.0
+    registryURL: http://localhost:12121
+    registryServerName: sebastianmaniak/ops-server
+    registryServerVersion: 0.1.0
+    registryServerPreferRemote: true
+skills:
+  - name: platform-best-practices
+    registryURL: http://localhost:12121
+    registrySkillName: platform-best-practices
+    registrySkillVersion: 1.0.0
+prompts:
+  - name: strict-operator
+    registryURL: http://localhost:12121
+    registryPromptName: strict-operator
+    registryPromptVersion: 1.0.0

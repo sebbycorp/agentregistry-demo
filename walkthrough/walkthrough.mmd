@@ -1,0 +1,38 @@
+%% Render at https://mermaid.live or with the Mermaid CLI.
+%% Mirrors the ASCII diagram printed by walkthrough.sh.
+flowchart LR
+    subgraph P1["Phase 2 — Platform"]
+        arctl["arctl + daemon<br/>:12121"]
+        kind["kind cluster<br/>agentregistry"]
+        kagent["kagent +<br/>agentgateway"]
+    end
+
+    subgraph BUILD["Phases 3-5 — Build + Publish"]
+        mcp["MCP server<br/>ops-server<br/>health / deployments / logs"]
+        skill["Skill<br/>platform-best-practices<br/>SLAs / escalation / owners"]
+        prompt["Prompt<br/>strict-operator"]
+        agent["Agent<br/>platformopsagent<br/>(ADK + gpt-4o)"]
+    end
+
+    subgraph REG["Phase 6 — Registry @ :12121"]
+        catalog[("Catalog")]
+    end
+
+    subgraph DEPLOY["Phase 7 — Kubernetes"]
+        mcpPod["ops-server pod"]
+        agentPod["agent pod"]
+    end
+
+    subgraph CC["Phase 8 — Consume"]
+        claude["Claude Code CLI"]
+    end
+
+    P1 --> BUILD
+    mcp --> catalog
+    skill --> catalog
+    prompt --> catalog
+    catalog -- "composed into" --> agent
+    agent -- "deployments create" --> agentPod
+    catalog -- "deployments create" --> mcpPod
+    mcpPod -- "port-forward + claude mcp add" --> claude
+    agentPod -. orchestrates .-> mcpPod
